@@ -13,8 +13,8 @@ path_data = 'https://github.com/PatrickFu0302/time-series-feature-demo/main/'
 
 @st.cache_data
 def read_data():
-    pca_matrix = pd.read_csv('https://github.com/PatrickFu0302/time-series-feature-demo/main/pca_matrix.csv')
-    tsne_matrix = pd.read_csv('https://github.com/PatrickFu0302/time-series-feature-demo/main/tsne_matrix.csv')
+    pca_matrix = pd.read_csv('./main/pca_matrix.csv')
+    tsne_matrix = pd.read_csv('./main/tsne_matrix.csv')
     return pca_matrix, tsne_matrix
 
 data_PCA, data_tSNE_2d = read_data()
