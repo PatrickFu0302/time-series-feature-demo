@@ -10,6 +10,7 @@ import os
 
 #%% Load features dataset
 path_data = 'https://github.com/PatrickFu0302/time-series-feature-demo/main/'
+pca_matrix = pd.read_csv('https://github.com/1010code/iris-dnn-tensorflow/raw/master/data/Iris.csv')
 
 @st.cache_data
 def read_data():
