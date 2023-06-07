@@ -20,7 +20,6 @@ def read_data():
 
 data_PCA, data_tSNE_2d = read_data()
 
-'''
 #%% Sidebar for filters
 st.sidebar.markdown('## Locations')
 selected_Locations = st.sidebar.multiselect(
@@ -105,4 +104,3 @@ tsne_fig2 = plt.figure(figsize=(8, 6))
 tsne_ax2 = sns.scatterplot(data=tsne_matrix, x="tSNE_x", y="tSNE_y", hue="Type", alpha=alpha)
 sns.move_legend(tsne_ax2, "upper left", bbox_to_anchor=(1, 1))
 st.pyplot(tsne_fig2)
-'''
