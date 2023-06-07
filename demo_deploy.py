@@ -7,10 +7,6 @@ import matplotlib.pyplot as plt
 
 import os
 
-from sklearn.preprocessing import StandardScaler
-from sklearn.decomposition import PCA
-from sklearn.manifold import TSNE
-
 #%% Load features dataset
 path_data = r'https://github.com/PatrickFu0302/time-series-feature-demo/main/'
 
