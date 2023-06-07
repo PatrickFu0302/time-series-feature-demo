@@ -17,8 +17,8 @@ def read_data():
     tsne_matrix = pd.read_csv(os.path.join(path_data, 'tsne_matrix.csv'))
     return pca_matrix, tsne_matrix
 
-data_PCA, data_tSNE_2d = read_data()
 '''
+data_PCA, data_tSNE_2d = read_data()
 
 #%% Sidebar for filters
 st.sidebar.markdown('## Locations')
