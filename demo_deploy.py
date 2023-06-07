@@ -9,8 +9,7 @@ import os
 
 
 #%% Load features dataset
-path_data = 'https://github.com/PatrickFu0302/time-series-feature-demo/main/'
-pca_matrix = pd.read_csv('https://github.com/1010code/iris-dnn-tensorflow/raw/master/data/Iris.csv')
+path_data = 'https://raw.githubusercontent.com/PatrickFu0302/time-series-feature-demo/main/'
 
 @st.cache_data
 def read_data():
@@ -18,10 +17,10 @@ def read_data():
     tsne_matrix = pd.read_csv(os.path.join(path_data, 'tsne_matrix.csv'))
     return pca_matrix, tsne_matrix
 
-'''
+
 data_PCA, data_tSNE_2d = read_data()
 
-
+'''
 #%% Sidebar for filters
 st.sidebar.markdown('## Locations')
 selected_Locations = st.sidebar.multiselect(
