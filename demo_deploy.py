@@ -7,9 +7,7 @@ import matplotlib.pyplot as plt
 
 import os
 
-st.markdown('#### Hello world')
 
-'''
 #%% Load features dataset
 path_data = r'https://github.com/PatrickFu0302/time-series-feature-demo/main/'
 
@@ -20,6 +18,7 @@ def read_data():
     return pca_matrix, tsne_matrix
 
 data_PCA, data_tSNE_2d = read_data()
+'''
 
 #%% Sidebar for filters
 st.sidebar.markdown('## Locations')
