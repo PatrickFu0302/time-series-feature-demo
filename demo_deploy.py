@@ -32,8 +32,7 @@ pca_combination, tsne_combination, pca_domain_informed, tsne_domain_informed, pc
 st.sidebar.markdown('## Feature type')
 selected_feature_type = st.sidebar.selectbox(
     label = 'Select feature type for visualization:',
-    options = ['Domain informed','Domain agnostic','Combination'],
-    default = 'Combination')
+    options = ('Domain informed','Domain agnostic','Combination'))
 
 st.sidebar.markdown('## Locations')
 selected_Locations = st.sidebar.multiselect(
