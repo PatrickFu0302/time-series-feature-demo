@@ -38,14 +38,14 @@ selected_feature_type = st.sidebar.multiselect(
 st.sidebar.markdown('## Locations')
 selected_Locations = st.sidebar.multiselect(
     label = 'Select Locations for visualization:',
-    options = list(data_PCA['Location'].unique()),
-    default = list(data_PCA['Location'].unique()))
+    options = list(pca_combination['Location'].unique()),
+    default = list(pca_combination['Location'].unique()))
 
 st.sidebar.markdown('## Type')
 selected_bldg_types = st.sidebar.multiselect(
     label = 'Select building types for visualization:',
-    options = list(data_PCA['Type'].unique()),
-    default = list(data_PCA['Type'].unique()))
+    options = list(pca_combination['Type'].unique()),
+    default = list(pca_combination['Type'].unique()))
 
 st.sidebar.markdown('## Transparency')
 alpha = st.sidebar.slider(label = 'Select transparency of dots in scatter plots:', 
