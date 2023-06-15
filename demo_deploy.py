@@ -101,16 +101,16 @@ tsne_matrix = data_tSNE_2d[data_tSNE_2d['Location'].isin(selected_Locations)&\
 st.markdown('#### Scatter plots of PCA results')
 
 with st.expander("See the dataframe of PCA features"):
-    st.markdown('Rows of dataframe: '+str(len(pca_matrix)))
-    st.write(pca_matrix.reset_index(drop=True))
+    st.markdown('Rows of dataframe: '+str(len(data_PCA)))
+    st.write(data_PCA.reset_index(drop=True))
     
 PCA_fig1 = plt.figure(figsize=(8, 6))
-PCA_ax1 = sns.scatterplot(data=pca_matrix[pca_matrix['PC_0']<80], x="PC 1", y="PC 2", hue="Location", alpha=alpha)
+PCA_ax1 = sns.scatterplot(data=data_PCA[data_PCA['PC_0']<80], x="PC 1", y="PC 2", hue="Location", alpha=alpha)
 #sns.move_legend(PCA_ax1, "upper left", bbox_to_anchor=(1, 1))
 st.pyplot(PCA_fig1)
 
 PCA_fig2 = plt.figure(figsize=(8, 6))
-PCA_ax2 = sns.scatterplot(data=pca_matrix[pca_matrix['PC_0']<80], x="PC 1", y="PC 2", hue="Type", alpha=alpha)
+PCA_ax2 = sns.scatterplot(data=data_PCA[data_PCA['PC_0']<80], x="PC 1", y="PC 2", hue="Type", alpha=alpha)
 #sns.move_legend(PCA_ax2, "upper left", bbox_to_anchor=(1, 1))
 st.pyplot(PCA_fig2)
 
@@ -118,15 +118,15 @@ st.pyplot(PCA_fig2)
 st.markdown('#### Scatter plots of t-SNE results')
 
 with st.expander("See the dataframe of t-SNE features"):
-    st.markdown('Rows of dataframe: '+str(len(tsne_matrix)))
-    st.write(tsne_matrix.reset_index(drop=True))
+    st.markdown('Rows of dataframe: '+str(len(data_tSNE_2d)))
+    st.write(data_tSNE_2d.reset_index(drop=True))
     
 tsne_fig1 = plt.figure(figsize=(8, 6))
-tsne_ax1 = sns.scatterplot(data=tsne_matrix, x="comp-1", y="comp-2", hue="Location", alpha=alpha)
+tsne_ax1 = sns.scatterplot(data=data_tSNE_2d, x="comp-1", y="comp-2", hue="Location", alpha=alpha)
 #sns.move_legend(tsne_ax1, "upper left", bbox_to_anchor=(1, 1))
 st.pyplot(tsne_fig1)
 
 tsne_fig2 = plt.figure(figsize=(8, 6))
-tsne_ax2 = sns.scatterplot(data=tsne_matrix, x="comp-1", y="comp-2", hue="Type", alpha=alpha)
+tsne_ax2 = sns.scatterplot(data=data_tSNE_2d, x="comp-1", y="comp-2", hue="Type", alpha=alpha)
 #sns.move_legend(tsne_ax2, "upper left", bbox_to_anchor=(1, 1))
 st.pyplot(tsne_fig2)
