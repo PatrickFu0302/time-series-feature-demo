@@ -105,12 +105,12 @@ with st.expander("See the dataframe of PCA features"):
     st.write(pca_matrix.reset_index(drop=True))
     
 PCA_fig1 = plt.figure(figsize=(8, 6))
-PCA_ax1 = sns.scatterplot(data=pca_matrix[pca_matrix['PC_0']<80], x="PC_0", y="PC_1", hue="Location", alpha=alpha)
+PCA_ax1 = sns.scatterplot(data=pca_matrix[pca_matrix['PC_0']<80], x="PC 1", y="PC 2", hue="Location", alpha=alpha)
 #sns.move_legend(PCA_ax1, "upper left", bbox_to_anchor=(1, 1))
 st.pyplot(PCA_fig1)
 
 PCA_fig2 = plt.figure(figsize=(8, 6))
-PCA_ax2 = sns.scatterplot(data=pca_matrix[pca_matrix['PC_0']<80], x="PC_0", y="PC_1", hue="Type", alpha=alpha)
+PCA_ax2 = sns.scatterplot(data=pca_matrix[pca_matrix['PC_0']<80], x="PC 1", y="PC 2", hue="Type", alpha=alpha)
 #sns.move_legend(PCA_ax2, "upper left", bbox_to_anchor=(1, 1))
 st.pyplot(PCA_fig2)
 
@@ -122,11 +122,11 @@ with st.expander("See the dataframe of t-SNE features"):
     st.write(tsne_matrix.reset_index(drop=True))
     
 tsne_fig1 = plt.figure(figsize=(8, 6))
-tsne_ax1 = sns.scatterplot(data=tsne_matrix, x="tSNE_x", y="tSNE_y", hue="Location", alpha=alpha)
+tsne_ax1 = sns.scatterplot(data=tsne_matrix, x="comp-1", y="comp-2", hue="Location", alpha=alpha)
 #sns.move_legend(tsne_ax1, "upper left", bbox_to_anchor=(1, 1))
 st.pyplot(tsne_fig1)
 
 tsne_fig2 = plt.figure(figsize=(8, 6))
-tsne_ax2 = sns.scatterplot(data=tsne_matrix, x="tSNE_x", y="tSNE_y", hue="Type", alpha=alpha)
+tsne_ax2 = sns.scatterplot(data=tsne_matrix, x="comp-1", y="comp-2", hue="Type", alpha=alpha)
 #sns.move_legend(tsne_ax2, "upper left", bbox_to_anchor=(1, 1))
 st.pyplot(tsne_fig2)
