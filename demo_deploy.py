@@ -13,14 +13,28 @@ path_data = 'https://raw.githubusercontent.com/PatrickFu0302/time-series-feature
 
 @st.cache_data
 def read_data():
-    pca_matrix = pd.read_csv(os.path.join(path_data, 'pca_matrix.csv'))
-    tsne_matrix = pd.read_csv(os.path.join(path_data, 'tsne_matrix.csv'))
-    return pca_matrix, tsne_matrix
+    pca_combination_features = pd.read_csv(os.path.join(path_data, 'pca_combination_features.csv'))
+    tsne_combination_features = pd.read_csv(os.path.join(path_data, 'tsne_combination_features.csv'))
+
+    pca_domain_informed_features = pd.read_csv(os.path.join(path_data, 'pca_domain_informed_features.csv'))
+    tsne_domain_informed_features = pd.read_csv(os.path.join(path_data, 'tsne_domain_informed_features.csv'))
+    
+
+    pca_domain_agnostic_features = pd.read_csv(os.path.join(path_data, 'pca_domain_agnostic_features.csv'))
+    tsne_domain_agnostic_features = pd.read_csv(os.path.join(path_data, 'tsne_domain_agnostic_features.csv'))
+    
+    return pca_combination_features, tsne_combination_features, pca_domain_informed_features, tsne_domain_informed_features, pca_domain_agnostic_features, tsne_domain_agnostic_features 
 
 
-data_PCA, data_tSNE_2d = read_data()
+pca_combination, tsne_combination, pca_domain_informed, tsne_domain_informed, pca_domain_agnostic, tsne_domain_agnostic = read_data()
 
 #%% Sidebar for filters
+st.sidebar.markdown('## Feature type')
+selected_feature_type = st.sidebar.multiselect(
+    label = 'Select feature type for visualization:',
+    options = ['Domain informed','Domain agnostic','Combination'],
+    default = 'Combination')
+
 st.sidebar.markdown('## Locations')
 selected_Locations = st.sidebar.multiselect(
     label = 'Select Locations for visualization:',
@@ -45,6 +59,19 @@ def convert_df(df):
         pass
     return df.to_csv(index=False).encode('utf-8')
 
+
+if selected_feature_type == 'Combination':
+    data_PCA = pca_combination
+    data_tSNE_2d = tsne_combination
+    
+elif selected_feature_type == 'Domain agnostic':
+    data_PCA = pca_domain_agnostic
+    data_tSNE_2d = tsne_domain_agnostic
+
+elif selected_feature_type == 'Domain informed':
+    data_PCA = pca_domain_informed
+    data_tSNE_2d = tsne_domain_informed
+
 csv_PCA = convert_df(data_PCA)
 csv_tSNE = convert_df(data_tSNE_2d)
 
@@ -60,7 +87,7 @@ st.sidebar.download_button(
     file_name='tsne_matrix.csv',
 )
 
-st.sidebar.markdown('## Github repository: \n https://github.com/hussainkazmi')
+#st.sidebar.markdown('## Github repository: \n https://github.com/hussainkazmi')
 
     
 #%% Filter data for visualization
