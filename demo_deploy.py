@@ -105,12 +105,12 @@ with st.expander("See the dataframe of PCA features"):
     st.write(data_PCA.reset_index(drop=True))
     
 PCA_fig1 = plt.figure(figsize=(8, 6))
-PCA_ax1 = sns.scatterplot(data=data_PCA[data_PCA['PC_0']<80], x="PC 1", y="PC 2", hue="Location", alpha=alpha)
+PCA_ax1 = sns.scatterplot(data=data_PCA[data_PCA['PC 1']<80], x="PC 1", y="PC 2", hue="Location", alpha=alpha)
 #sns.move_legend(PCA_ax1, "upper left", bbox_to_anchor=(1, 1))
 st.pyplot(PCA_fig1)
 
 PCA_fig2 = plt.figure(figsize=(8, 6))
-PCA_ax2 = sns.scatterplot(data=data_PCA[data_PCA['PC_0']<80], x="PC 1", y="PC 2", hue="Type", alpha=alpha)
+PCA_ax2 = sns.scatterplot(data=data_PCA[data_PCA['PC 1']<80], x="PC 1", y="PC 2", hue="Type", alpha=alpha)
 #sns.move_legend(PCA_ax2, "upper left", bbox_to_anchor=(1, 1))
 st.pyplot(PCA_fig2)
 
