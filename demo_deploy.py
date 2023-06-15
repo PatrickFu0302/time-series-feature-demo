@@ -30,7 +30,7 @@ pca_combination, tsne_combination, pca_domain_informed, tsne_domain_informed, pc
 
 #%% Sidebar for filters
 st.sidebar.markdown('## Feature type')
-selected_feature_type = st.sidebar.multiselect(
+selected_feature_type = st.sidebar.select(
     label = 'Select feature type for visualization:',
     options = ['Domain informed','Domain agnostic','Combination'],
     default = 'Combination')
